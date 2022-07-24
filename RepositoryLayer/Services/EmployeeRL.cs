@@ -125,7 +125,7 @@ namespace RepositoryLayer.Services
                 EmployeeModel emp = new EmployeeModel();
                 using (SqlConnection con = new SqlConnection(configuration["ConnectionStrings:EmployeePayrollMVC"]))
                 {
-                    string sqlQuery = "SELECT * FROM tableEmployeeInfo WHERE Emp_id= " + id;
+                    string sqlQuery = "SELECT * FROM tbleEmployeeInfo WHERE Emp_id= " + id;
                     SqlCommand cmd = new SqlCommand(sqlQuery, con);
                     con.Open();
                     SqlDataReader rdr = cmd.ExecuteReader();
@@ -159,7 +159,7 @@ namespace RepositoryLayer.Services
 
                     cmd.Parameters.AddWithValue("@Emp_id", emp.Emp_id);
                     cmd.Parameters.AddWithValue("@Emp_name", emp.Emp_name);
-                    cmd.Parameters.AddWithValue("@Profileimage", emp.Profile_img);
+                    cmd.Parameters.AddWithValue("@Profile_img", emp.Profile_img);
                     cmd.Parameters.AddWithValue("@Gender", emp.Gender);
                     cmd.Parameters.AddWithValue("@Department", emp.Department);
                     cmd.Parameters.AddWithValue("@Salary", emp.Salary);

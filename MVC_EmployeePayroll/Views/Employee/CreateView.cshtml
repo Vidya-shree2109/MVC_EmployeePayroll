@@ -3,11 +3,19 @@
 @{
     ViewData["Title"] = "CreateView";
 }
-
-<h1>CreateView</h1>
-
-<h4>EmployeeModel</h4>
-<hr />
+<div class="header-content header">
+    <div class="logo">
+        <a class="icon"> <img src="~/assets/logo.png"></a>
+        <div >
+            <span class="emp-text">EMPLOYEE</span><br>
+            <span class="emp-text payroll">PAYROLL</span>
+        </div>
+    </div>
+</div>
+@*<h1>CreateView</h1>
+*@
+@*<h4>EmployeeModel</h4>
+*@<hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="CreateView">
@@ -24,18 +32,39 @@
             </div>
             <div class="form-group">
                 <label asp-for="Profile_img" class="control-label"></label>
-                <input asp-for="Profile_img" class="form-control" />
+                 <div class="profile-radio-content profile-control"></div>
+                        @Html.RadioButtonFor(model => model.Profile_img, "~/assets/Male (1).png")
+                        <img class="Profile-image-1 " src = "~/assets/Male (1).png"  />
+                        @Html.RadioButtonFor(model => model.Profile_img, "~/assets/Male (2).png")
+                        <img class="Profile-image-1 " src = "~/assets/Male (2).png"  />
+                        @Html.RadioButtonFor(model => model.Profile_img, "~/assets/Female (3).png")
+                        <img class="Profile-image-1 " src = "~/assets/Female (3) .png" />
+                        @Html.RadioButtonFor(model => model.Profile_img, "~/assets/Female (5).png")
+                        <img class="Profile-image-1 " src = "~/assets/Female (5).png"  />
+                <div/>
+               @* <input asp-for="Profile_img" class="form-control" />*@
                 <span asp-validation-for="Profile_img" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Gender" class="control-label"></label>
-                <input asp-for="Gender" class="form-control" />
-                <span asp-validation-for="Gender" class="text-danger"></span>
+                @*<input asp-for="Gender" class="form-control" />
+                <span asp-validation-for="Gender" class="text-danger"></span>*@
+                <select asp-for="Gender" class="form-control" >
+                    <option>Male</option> 
+                    <option>Female</option> 
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="Department" class="control-label"></label>
-                <input asp-for="Department" class="form-control" />
-                <span asp-validation-for="Department" class="text-danger"></span>
+               @* <input asp-for="Department" class="form-control" />
+                <span asp-validation-for="Department" class="text-danger"></span>*@
+                <select asp-for="Department" class="form-control" >
+                    <option>HR</option> 
+                    <option>Sales</option>
+                    <option>Finance</option>
+                    <option>Engineer</option>
+                    <option>Others</option>
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="Salary" class="control-label"></label>
@@ -49,7 +78,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Notes" class="control-label"></label>
-                <input asp-for="Notes" class="form-control" />
+                <input asp-for="Notes" class="form-control" placeholder="Notes..." style="height:100px" />
                 <span asp-validation-for="Notes" class="text-danger"></span>
             </div>
             <div class="form-group">
